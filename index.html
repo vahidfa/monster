@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app" style="text-align: center;">
+      <h3>هیولا</h3>
+      <div class="meter">
+        <span style="width: 50%" :style="{width:monsterHealth + '%'}">
+          {{ monsterHealth }}
+        </span>
+      </div>
+      <h3>بازیکن</h3>
+      <div class="meter">
+        <span style="width: 50%" :style="{width:playerHealth + '%'}">
+          {{ playerHealth }}
+        </span>
+      </div>
+
+      <section v-if="!GameIsRun">
+        <div>
+          <hr />
+          <button
+            class="btn"
+            style="background-color: greenyellow;"
+            @click="startGame"
+          >
+            شروع بازی
+          </button>
+        </div>
+      </section>
+
+      <section v-else>
+        <hr />
+        <div>
+          <button class="btn" @click="attack">حمله</button>
+          <button class="btn" @click="specialAttack">حمله ویژه</button>
+          <button class="btn" @click="heal">کمک</button>
+          <button class="btn" @click="giveUp">تسلیم</button>
+        </div>
+      </section>
+    </div>
+    <script src="/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
